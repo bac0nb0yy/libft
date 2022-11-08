@@ -3,66 +3,72 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 00:59:38 by dtelnov           #+#    #+#             */
-/*   Updated: 2022/10/11 00:42:00 by dtelnov          ###   ########.fr       */
+/*   Updated: 2022/11/08 12:47:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	taille(char const *s1, char const *set)
+static	size_t	check(char const *set, char a)
 {
 	size_t	i;
-	size_t	k;
-	size_t	result;
 
 	i = 0;
-	result = 0;
-	while (s1[i])
+	while (set[i])
 	{
-		k = 0;
-		while (set[k])
-		{
-			if (s1[i] == set[k])
-			{
-				result++;
-				break ;
-			}
-			k++;
-		}
+		if (a == set[i])
+			return (1);
 		i++;
 	}
-	return (result);
+	return (0);
+}
+
+static	size_t	debut_index(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < ft_strlen(s1) && check(set, s1[i]) == 1)
+		i++;
+	return (i);
+}
+
+static	size_t	fin_index(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < ft_strlen(s1) && check(set, s1[ft_strlen(s1) - i - 1]) == 1)
+		i++;
+	return (ft_strlen(s1) - i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*tmp;
+	size_t	debut;
+	size_t	fin;
 	size_t	i;
-	size_t	l;
-	size_t	k;
 
 	if (!s1 || !set)
 		return (NULL);
-	tmp = malloc(ft_strlen(s1) - taille(s1, set) + 1);
+	debut = debut_index(s1, set);
+	fin = fin_index(s1, set);
+	if (debut >= fin)
+		return (ft_strdup(""));
+	tmp = malloc(sizeof(char) * (fin - debut + 1));
 	if (!tmp)
 		return (NULL);
-	l = 0;
 	i = 0;
-	while (s1[i])
+	while (debut < fin)
 	{
-		k = 0;
-		while (set[k] && set[k] != s1[i])
-			k++;
-		if (set[k] == '\0')
-		{
-			tmp[l] = s1[i];
-			l++;
-		}
+		tmp[i] = s1[debut];
 		i++;
+		debut++;
 	}
-	tmp[l] = '\0';
+	tmp[i] = '\0';
 	return (tmp);
 }
