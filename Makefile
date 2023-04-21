@@ -6,7 +6,7 @@
 #    By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 04:45:01 by dtelnov           #+#    #+#              #
-#    Updated: 2023/04/21 21:31:36 by dtelnov          ###   ########.fr        #
+#    Updated: 2023/04/21 22:45:10 by dtelnov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,8 +84,8 @@ $(NAME): $(OBJS)
 	@echo "\n\n[🔘] $(BGREEN)Compiling libft..."
 	@$(AR) $(NAME) $^
 	@echo "$(NC)"
-	@printf "$(BBLACK)[%2d/%2d] 100%%\t$(BWHITE)All files have been compiled ✔️$(NC)\n" $(COUNT) $(TOTAL)
-	@echo "[💠] $(BBLACK)$(NAME)\t$(BWHITE)Library created ✔️\n$(NC)"
+	@printf "$(BCYAN)[%2d/%2d] 100%%\t$(BWHITE)All files have been compiled ✔️$(NC)\n" $(COUNT) $(TOTAL)
+	@echo "[💠] $(BCYAN)$(NAME)\t$(BWHITE)Library created ✔️\n$(NC)"
 
 %.o: %.c
 	@printf "[🔄] $(BPURPLE)Generating libft objects... %-33.33s\r$(NC)" $@
