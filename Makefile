@@ -6,7 +6,7 @@
 #    By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 04:45:01 by dtelnov           #+#    #+#              #
-#    Updated: 2023/04/21 04:50:07 by dtelnov          ###   ########.fr        #
+#    Updated: 2023/04/21 21:31:36 by dtelnov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "[🗑️ ] $(BRED)All $(RED)files have been cleaned ✔️$(NC)"
+	@echo "[🚮] $(BRED)All $(RED)files have been cleaned ✔️$(NC)"
 
 re: clean all
 
