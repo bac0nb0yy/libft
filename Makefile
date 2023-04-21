@@ -89,7 +89,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	@printf "[🔄] $(BPURPLE)Generating libft objects... %-33.33s\r$(NC)" $@
-	@${CC} ${CFLAGS} -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
 	@$(eval PERCENT:=$(shell echo $$((100*$(COUNT)/$(TOTAL)))))
 
