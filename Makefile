@@ -6,7 +6,7 @@
 #    By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 04:45:01 by dtelnov           #+#    #+#              #
-#    Updated: 2023/04/21 22:45:10 by dtelnov          ###   ########.fr        #
+#    Updated: 2023/05/11 06:08:39 by dtelnov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ FTMEM = bzero calloc memchr memcmp memcpy memmove memset
 
 FTPUT = char_fd endl_fd nbr_fd str_fd
 
-FTSTR = chr dup iteri join lcat lcpy len mapi ncmp nstr rchr trim
+FTSTR = strchr strdup striteri strjoin strlcat strlcpy strlen strmapi strncmp strnstr strrchr strtrim longest_array compstr
 
 FTSUB = ft_str/ft_substr ft_str/ft_split
 
@@ -61,16 +61,17 @@ FTEX = gnl/get_next_line printf/ft_printf
 
 FTPRF = nums str utils
 
+FTMATH = abs max min swap_xor
+
 SRCS = $(addsuffix .c, $(addprefix ft_is/ft_is, $(FTIS))) \
 	$(addsuffix .c, $(addprefix ft_lst/ft_lst, $(FTLST))) \
-	$(addsuffix .c, $(addprefix ft_math/ft_, $(FTMATH))) \
 	$(addsuffix .c, $(addprefix ft_mem/ft_, $(FTMEM))) \
 	$(addsuffix .c, $(addprefix ft_put/ft_put, $(FTPUT))) \
-	$(addsuffix .c, $(addprefix ft_skip/ft_skip_, $(FTSKIP))) \
-	$(addsuffix .c, $(addprefix ft_str/ft_str, $(FTSTR)) $(FTSUB)) \
+	$(addsuffix .c, $(addprefix ft_str/ft_, $(FTSTR)) $(FTSUB)) \
 	$(addsuffix .c, $(addprefix ft_to/ft_, $(FTTO))) \
 	$(addsuffix .c, $(addprefix ft_, $(FTEX))) \
 	$(addsuffix .c, $(FTCONVERT)) \
+	$(addsuffix .c, $(addprefix ft_math/ft_, $(FTMATH))) \
 	$(addsuffix .c, $(addprefix ft_printf/ft_printf_, $(FTPRF))) \
 
 OBJS = $(SRCS:.c=.o)

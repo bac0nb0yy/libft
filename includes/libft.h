@@ -6,7 +6,7 @@
 /*   By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 18:52:21 by dtelnov           #+#    #+#             */
-/*   Updated: 2023/04/21 04:42:55 by dtelnov          ###   ########.fr       */
+/*   Updated: 2023/05/11 06:08:28 by dtelnov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdbool.h>
 
 # include "get_next_line.h"
 # include "ft_printf.h"
@@ -112,4 +113,15 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+int		ft_abs(int nb);
+
+int		ft_max(int a, int b);
+
+int		ft_min(int a, int b);
+
+bool	ft_compstr(char *s1, char *s2);
+
+char	*ft_longest_array(char *s1, char*s2);
+
+void	swap_xor(int *a, int *b);
 #endif
