@@ -6,7 +6,7 @@
 #    By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 04:45:01 by dtelnov           #+#    #+#              #
-#    Updated: 2023/05/11 06:08:39 by dtelnov          ###   ########.fr        #
+#    Updated: 2023/06/28 01:49:42 by dtelnov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,9 @@ FTTO = tolower toupper
 
 FTCONVERT = ft_convert/ft_atoi ft_convert/ft_itoa
 
-FTEX = gnl/get_next_line printf/ft_printf
+FTEX = gnl/get_next_line
 
-FTPRF = nums str utils
+FTPRF = add len_nums len_str utils all
 
 FTMATH = abs max min swap_xor
 

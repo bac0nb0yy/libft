@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_str.c                                    :+:      :+:    :+:   */
+/*   len_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 08:06:45 by dtelnov           #+#    #+#             */
-/*   Updated: 2023/04/21 04:46:22 by dtelnov          ###   ########.fr       */
+/*   Created: 2023/05/04 04:48:18 by dtelnov           #+#    #+#             */
+/*   Updated: 2023/05/05 01:19:33 by dtelnov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	hdl_c(va_list args)
+int	ft_strlen(char *s)
 {
-	unsigned char	character;
+	int	len;
 
-	character = va_arg(args, int);
-	if (write(1, &character, 1) == -1)
-		return (-1);
-	return (1);
+	len = 0;
+	while (s[len])
+		++len;
+	return (len);
 }
 
-int	hdl_s(va_list args)
+int	ft_strarglen(char *s)
 {
-	char	*str;
 	int		len;
 
-	str = va_arg(args, char *);
-	if (!str)
-	{
-		write(1, "(null)", 6);
+	if (!s)
 		return (6);
-	}
-	len = printf_strlen(str);
-	if (write(1, str, len) == -1)
-		return (-1);
+	len = 0;
+	while (s[len])
+		++len;
 	return (len);
 }
