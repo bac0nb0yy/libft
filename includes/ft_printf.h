@@ -6,7 +6,7 @@
 /*   By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 03:26:00 by dtelnov           #+#    #+#             */
-/*   Updated: 2023/06/28 01:50:12 by dtelnov          ###   ########.fr       */
+/*   Updated: 2023/06/28 03:52:17 by dtelnov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <stdarg.h>
 
+# include "libft.h"
 
 # define INT_CONV			"pdiuxX"
 # define HEX_UPPER_VALUES	"0123456789ABCDEF"
@@ -29,10 +30,8 @@ int		ft_intlen(int number, int base);
 int		ft_uintlen(unsigned int number, int base);
 int		ft_ullen(unsigned long number, int base);
 int		calculate_len(va_list args, char format);
-int		ft_strlen(char *s);
 int		ft_arglen(const char *s, va_list args);
 int		ft_strarglen(char *s);
-char	*ft_strchr(const char *s, int c);
 void	convert_args(va_list args, char format, char *to_print, int *index);
 char	*ft_sprintf(const char *s, va_list args, va_list args_bis);
 char	*ft_argjoin(const char *s, va_list args, int size_malloc);
