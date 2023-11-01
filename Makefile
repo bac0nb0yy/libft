@@ -6,7 +6,7 @@
 #    By: dtelnov <dtelnov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 04:45:01 by dtelnov           #+#    #+#              #
-#    Updated: 2023/06/28 01:49:42 by dtelnov          ###   ########.fr        #
+#    Updated: 2023/11/01 18:42:50 by dtelnov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,27 +82,27 @@ COUNT = 0
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "\n\n[🔘] $(BGREEN)Compiling libft..."
+	@echo "\n\n[🔘] $(BGREEN)$(PROJECT_NAME) compiled !$(NC)\n"
 	@$(AR) $(NAME) $^
-	@echo "$(NC)"
-	@printf "$(BCYAN)[%2d/%2d] 100%%\t$(BWHITE)All files have been compiled ✔️$(NC)\n" $(COUNT) $(TOTAL)
+	@printf "[✨] $(BCYAN)[%2d/%2d]\t$(BWHITE)All files have been compiled ✔️$(NC)\n" $(COUNT) $(TOTAL)
 	@echo "[💠] $(BCYAN)$(NAME)\t$(BWHITE)Library created ✔️\n$(NC)"
 
 %.o: %.c
-	@printf "[🔄] $(BPURPLE)Generating libft objects... %-33.33s\r$(NC)" $@
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
 	@$(eval PERCENT:=$(shell echo $$((100*$(COUNT)/$(TOTAL)))))
+	@printf "                                                                                       \r"
+	@printf "$(BCYAN)%3d%%\t\t$(BWHITE)Compiling $@%*s\r$(NC)" $(PERCENT) $$(($(COUNT)/$(TOTAL)*33)) ""
 
 bonus: all
 
 clean:
 	@$(RM) $(OBJS)
-	@echo "[🧼] $(BYELLOW)Objects $(YELLOW)files have been cleaned from $(PROJECT_NAME) ✔️$(NC)"
+	@echo "[🧼] $(BYELLOW)Objects $(YELLOW)files have been cleaned from $(PROJECT_NAME) ✔️$(NC)\n"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "[🚮] $(BRED)All $(RED)files have been cleaned ✔️$(NC)"
+	@echo "[🚮] $(BRED)All $(RED)files have been cleaned ✔️$(NC)\n"
 
 re: clean all
 
